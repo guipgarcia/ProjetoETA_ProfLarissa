@@ -14,16 +14,12 @@ import system.actions.americanas.CestaAction;
 import system.actions.americanas.DetalhesProdutoAction;
 import system.actions.americanas.HomeAction;
 import system.actions.americanas.ResultadoBuscaAction;
-import system.actions.demo_selenium_easy.SeleniumEasyHomeAction;
-import system.actions.demo_selenium_easy.TableSortAndSearchDemoAction;
 import system.base.DriverFactory;
 
 import static system.helpers.VariaveisGlobais.DEFAULT_BROWSER;
 
 public class StepDefinitions {
     public static Scenario scenario;
-    private SeleniumEasyHomeAction sEHomeAction = new SeleniumEasyHomeAction();
-    private TableSortAndSearchDemoAction tableSortAndSearchDemoAction = new TableSortAndSearchDemoAction();
     private HomeAction americanasHomeAction = new HomeAction();
     private ResultadoBuscaAction resultadoBuscaAction = new ResultadoBuscaAction();
     private DetalhesProdutoAction detalhesProdutoAction = new DetalhesProdutoAction();
@@ -47,23 +43,6 @@ public class StepDefinitions {
     }
 
     // ########### SCENARIO'S STEPS ###########
-    @Given("that I access demo selenium easy application")
-    public void that_i_access_demo_selenium_easy_application() {
-        sEHomeAction.accessApplication();
-    }
-    @When("I select the {string} and {string}")
-    public void i_select_the_and(String menuItem, String submenuItem) {
-        sEHomeAction.selectHomeOption(menuItem, submenuItem);
-    }
-    @When("I change name position")
-    public void i_change_name_position() {
-        tableSortAndSearchDemoAction.changeNamePosition();
-    }
-    @Then("The {string} position was changed")
-    public void the_position_was_changed(String name) {
-        tableSortAndSearchDemoAction.isNameChangePosition(name);
-    }
-
 
     @Dado("que eu acesso aplicacao da americanas")
     public void queEuAcessoAplicacaoDaAmericanas() {
