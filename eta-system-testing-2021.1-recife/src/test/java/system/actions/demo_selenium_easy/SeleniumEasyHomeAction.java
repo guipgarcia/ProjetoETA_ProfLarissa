@@ -4,7 +4,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import system.pages.demo_selenium_easy.SeleniumEasyHomePage;
 
-import static system.helpers.Constants.SELENIUM_EASY_URL;
+import static system.helpers.VariaveisGlobais.SELENIUM_EASY_URL;
 
 public class SeleniumEasyHomeAction extends SeleniumEasyHomePage {
     private WebElement dinamicElement;

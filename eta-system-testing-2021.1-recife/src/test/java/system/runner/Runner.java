@@ -10,7 +10,7 @@ import org.junit.runner.RunWith;
     glue = "system/step_definitions",
     plugin = "pretty",
     snippets = CucumberOptions.SnippetType.CAMELCASE,
-    tags = "@TableSortScenarios"
+    tags = "@Americanas"
 )
 public class Runner {
 

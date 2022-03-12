@@ -308,6 +308,19 @@ class Main{
         tableSortAndSearchDemoAction.isNameChangePosition(name);
     }
 
+    @Test
+    public void testeeee(){
+        driver.get("https://www.americanas.com.br/");
+        WebElement busca = driver.findElement(By.name("conteudo"));
+        busca.click();
+        busca.sendKeys("cama");
+        WebElement btnBusca = driver.findElement(By.xpath("//form[@action = '/busca']//button"));
+        btnBusca.click();
+        WebElement header = driver.findElement(By.xpath("//h1[@class = 'full-grid__Title-sc-19t7jwc-3 jstCvu']"));
+        System.out.println(header.getText());
+        Assertions.assertTrue(header.getText().contains("cama"));
+    }
+
     @AfterEach
     public void afterEach(){
         DriverFactory.quitDriver();

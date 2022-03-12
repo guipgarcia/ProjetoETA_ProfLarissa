@@ -6,7 +6,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeDriverService;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.remote.DesiredCapabilities;
-import system.helpers.Constants;
+import system.helpers.VariaveisGlobais;
 
 public class DriverFactory {
     private static ThreadLocal<WebDriver> threadDriver = new ThreadLocal<WebDriver>(){
@@ -28,7 +28,7 @@ public class DriverFactory {
 
     public static WebDriver selectDriverType() {
         WebDriver driver = null;
-        switch (Constants.DEFAULT_BROWSER){
+        switch (VariaveisGlobais.DEFAULT_BROWSER){
         case "chrome":
             ChromeOptions options = new ChromeOptions();
             WebDriverManager.chromedriver().setup();
