@@ -3,17 +3,11 @@ package system.step_definitions;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import io.cucumber.java.Scenario;
-import io.cucumber.java.en.Given;
-import io.cucumber.java.en.Then;
-import io.cucumber.java.en.When;
 import io.cucumber.java.pt.Dado;
 import io.cucumber.java.pt.E;
 import io.cucumber.java.pt.Entao;
 import io.cucumber.java.pt.Quando;
-import system.actions.americanas.CestaAction;
-import system.actions.americanas.DetalhesProdutoAction;
-import system.actions.americanas.HomeAction;
-import system.actions.americanas.ResultadoBuscaAction;
+import system.actions.americanas.*;
 import system.base.DriverFactory;
 
 import static system.helpers.VariaveisGlobais.DEFAULT_BROWSER;
@@ -24,6 +18,7 @@ public class StepDefinitions {
     private ResultadoBuscaAction resultadoBuscaAction = new ResultadoBuscaAction();
     private DetalhesProdutoAction detalhesProdutoAction = new DetalhesProdutoAction();
     private CestaAction cestaAction = new CestaAction();
+    private ProcurarLojasPageAction procurarLojasAction = new ProcurarLojasPageAction();
     private String produtoCama = "cama";
 
     @Before
@@ -78,4 +73,21 @@ public class StepDefinitions {
     public void validoOPrecoEAQuantidadeDoProdutoNaCesta() {
         cestaAction.validarDadosCarrinho();
     }
+
+    @Quando("eu clicar no icone loja do header")
+    public void clicarNoIconeLojaDoHeader() {
+        procurarLojasAction.clicarNoBotaoBuscarLojas();
+    }
+
+    @Quando("digitar um cep")
+    public void inserirCep() {
+        procurarLojasAction.inserirCep("52040220");
+
+    }
+    @Entao("um mapa e exibido com as lojas mais proximas")
+    public void MapaExibidoComAsLojasMaisProximas() {
+        procurarLojasAction.validarExistenciaDeLojaProxima();
+    }
+
+
 }
