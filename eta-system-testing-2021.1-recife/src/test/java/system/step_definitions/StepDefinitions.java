@@ -43,11 +43,13 @@ public class StepDefinitions {
     public void queEuAcessoAplicacaoDaAmericanas() {
         americanasHomeAction.acessarAmericas();
     }
+
     @Quando("eu pesquiso por cama usando a barra de pesquisa")
     public void euPesquisoPorCamaUsandoABarraDePesquisa() {
         americanasHomeAction.buscarProduto(produtoCama);
 
     }
+
     @Entao("sao exibidos os resultados para cama")
     public void saoExibidosOsResultadosParaCama() {
         resultadoBuscaAction.validarResultadoBusca(produtoCama);
@@ -84,10 +86,31 @@ public class StepDefinitions {
         procurarLojasAction.inserirCep("52040220");
 
     }
+
     @Entao("um mapa e exibido com as lojas mais proximas")
     public void MapaExibidoComAsLojasMaisProximas() {
         procurarLojasAction.validarExistenciaDeLojaProxima();
+
     }
 
+    @Dado("usando a barra de pesquisa efetuo uma busca por {string}")
+    public void usandoABarraDePesquisaEfetuoUmaBuscaPor(String produto) {
+        americanasHomeAction.buscarProduto(produto);
+
+    }
+
+    @Quando("Clico na opcao de compartilhar via {string}")
+    public void clicoNaOpcaoDeCompartilharVia(String opcao) {
+        detalhesProdutoAction.clicarNoBotaoCompartilhar();
+        if(opcao.contains("WhatsApp")){detalhesProdutoAction.clicaNaOpcaoWhatsApp();}
+        if(opcao.contains("Pinterest")){}
+        if(opcao.contains("Facebook")){}
+        if(opcao.contains("Twitter")){}
+    }
+
+    @Entao("E apresentada a Tela da aplicacao de compartilhamento")
+    public void eApresentadaATelaDaAplicacaoDeCompartilhamento() {
+        detalhesProdutoAction.validarTelaDeCompartilhamentoViaWhatsApp();
+    }
 
 }

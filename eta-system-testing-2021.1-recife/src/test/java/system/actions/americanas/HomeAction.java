@@ -1,11 +1,13 @@
 package system.actions.americanas;
 
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import system.pages.americanas.HomePage;
 
 import static system.helpers.VariaveisGlobais.AMERICANAS_URL;
 
 public class HomeAction extends HomePage {
+
     public void acessarAmericas(){
         driver.get(AMERICANAS_URL);
         try{
@@ -20,5 +22,6 @@ public class HomeAction extends HomePage {
         busqueAquiSeuProduto.sendKeys(produto);
         botaoLupa.click();
     }
+
 }
 

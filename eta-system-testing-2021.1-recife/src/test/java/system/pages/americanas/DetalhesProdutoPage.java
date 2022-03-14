@@ -19,4 +19,23 @@ public class DetalhesProdutoPage extends BasePage {
 
     @FindBy(xpath = "//a[text() = 'ir para cesta']")
     protected WebElement botaoIrParaACesta;
+
+    @FindBy(css = "div:nth-child(2) p[class*='src__Title']")
+    protected WebElement botaoCompartilhar;
+
+    @FindBy(css = "button[value='whatsapp']")
+    protected WebElement opcaoCompartilharPorWhatsApp;
+
+    @FindBy(css = "p[class*='cep-tooltip']")
+    protected WebElement cepSplash;
+
+    @FindBy(css = ".landing-header svg")
+    protected WebElement whatsAppIcon;
+
+    @FindBy(css = ".landing-headerTitle")
+    protected WebElement whatsAppSharePageTitle;
+
+
+
+
 }
