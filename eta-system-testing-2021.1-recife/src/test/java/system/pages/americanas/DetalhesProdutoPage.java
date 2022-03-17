@@ -17,6 +17,9 @@ public class DetalhesProdutoPage extends BasePage {
     @FindBy(xpath = "//span[text() = 'comprar']/ancestor::a")
     protected WebElement botaoComprar;
 
+    @FindBy(xpath = "//span[text() = 'sim, continuar']")
+    protected WebElement continuarBtn;
+
     @FindBy(xpath = "//a[text() = 'ir para cesta']")
     protected WebElement botaoIrParaACesta;
 

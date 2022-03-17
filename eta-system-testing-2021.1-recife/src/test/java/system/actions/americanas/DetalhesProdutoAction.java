@@ -15,11 +15,16 @@ public class DetalhesProdutoAction extends DetalhesProdutoPage {
     public void salvarTextoPrecoProduto(){
         validarNomeProduto();
         adicionarAoHash(PRECO_PRODUTO, precoProduto.getText());
-        //adicionarAoHash(PRECO_FRETE, opcaoFreteTexto.getText());
     }
 
     public void clicarBotaoComprar(){
         botaoComprar.click();
+        try{
+            wait.until(ExpectedConditions.visibilityOf(continuarBtn));
+            continuarBtn.click();
+        }catch (Exception e){
+            System.out.println();
+        }
     }
 
     public void clicarBotaoIrParaCesta(){
@@ -29,6 +34,23 @@ public class DetalhesProdutoAction extends DetalhesProdutoPage {
     public void clicarNoBotaoCompartilhar(){
         wait.until(ExpectedConditions.invisibilityOf(cepSplash));
         botaoCompartilhar.click();
+    }
+
+    public void escolherFuncaoCompartilhamento(String opcao){
+        switch (opcao){
+            case "WhatsApp":
+                clicaNaOpcaoWhatsApp();
+                break;
+            case "Pinterest":
+                // Função será desenvolvida na próxima release
+                break;
+            case "Facebook":
+                // Função será desenvolvida na próxima release
+                break;
+            case "Twitter":
+                // Função será desenvolvida na próxima release
+                break;
+        }
     }
 
     public void clicaNaOpcaoWhatsApp(){
